@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Scheme API</title>
+  </head>
+  <body>
+    <article>
+      <h1>Color Scheme API</h1>
+      <p>
+        This is a very simple API intended to return color schemes related to
+        your color entry.
+      </p>
+    </article>
+
+    <div>
+      <h2>Test it Out</h2>
+      <input
+        type="text"
+        placeholder="enter hex value"
+        maxlength="9"
+        minlength="3"
+      /><button>Submit</button>
+    </div>
+    <div>
+      <h3>Color Entry: <span class="colorValue"></span></h3>
+    </div>
+    <div class="hidden">
+      <div class = "complementaryScheme">
+        <h3 >Complimentary Color Scheme</h3>
+        <ul></ul>
+      </div>
+      <div class="analogousScheme">
+        <h3>Analogous Color Scheme</h3>
+        <ul></ul>
+      </div>
+      <div class="triadScheme">
+        <h3>Triad Color Scheme</h3>
+        <ul></ul>
+      </div>
+      <div class="squareScheme">
+        <h3>Square Color Scheme</h3>
+        <ul></ul>
+      </div>
+      <div class="splitComplementaryScheme">
+        <h3>Split Color Scheme</h3>
+        <ul></ul>
+      </div>
+    </div>
+   
+  </div>
+  <script type="text/javascript" src="./js/index.js"></script>
+  </body>
+</html>
