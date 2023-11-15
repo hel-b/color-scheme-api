@@ -3,53 +3,117 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/prism.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🌈</text></svg>"
+    />
     <title>Color Scheme API</title>
   </head>
   <body>
-    <article>
+    <article class="intro">
       <h1>Color Scheme API</h1>
       <p>
-        This is a very simple API intended to return color schemes related to
-        your color entry.
+        This API generates color schemes from a single base color value. It
+        accepts a singular color value in hexadecimal format and returns each
+        color scheme color value in hexadecimal format.
+      </p>
+      <p>
+        I'm not a designer 😅. Therefore, the output of this tool may not be
+        accurate, nor provide an acceptable color scheme/palette for design
+        purposes. This tool is for demonstration purposes ONLY.
       </p>
     </article>
-
-    <div>
-      <h2>Test it Out</h2>
-      <input
-        type="text"
-        placeholder="enter hex value"
-        maxlength="9"
-        minlength="3"
-      /><button>Submit</button>
+    <article class="example">
+      <h2>Example API fetch</h2>
+      <pre><code class="language-js">
+async function apiReq() {
+  const hexValue = '3A0B61'
+  const baseURL = 'https://color-scheme-api.cyberalcove.com'
+  try {
+    const res = await fetch(`${baseURL}/api/${hexValue}`)
+    const data = await res.json()
+    console.log(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+apiReq()
+      </code></pre>
+    </article>
+    <div class="input">
+      <div>
+        <h2>Test it Out</h2>
+        <input
+          type="text"
+          placeholder="enter hex value"
+          maxlength="9"
+          minlength="3"
+        /><button>Submit</button>
+        <ul>
+          <li>
+            Do not place a '#' sign before your color value. It will not work.
+          </li>
+          <li>
+            This API will accept hex values including alpha channels, but the
+            alpha channel will be removed.
+          </li>
+        </ul>
+      </div>
+      <div class="colorValue hidden">
+        <h3>Color Entry</h3>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h3>Color Entry: <span class="colorValue"></span></h3>
+    <div class="hidden output">
+      <h3>Color Schemes</h3>
+      <div>
+        <div class="complementaryScheme">
+          <h4>Complementary</h4>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="analogousScheme">
+          <h4>Analogous</h4>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="triadScheme">
+          <h4>Triad</h4>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="squareScheme">
+          <h4>Square</h4>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="splitComplementaryScheme">
+          <h4>Split Complementary</h4>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="hidden">
-      <div class = "complementaryScheme">
-        <h3 >Complimentary Color Scheme</h3>
-        <ul></ul>
-      </div>
-      <div class="analogousScheme">
-        <h3>Analogous Color Scheme</h3>
-        <ul></ul>
-      </div>
-      <div class="triadScheme">
-        <h3>Triad Color Scheme</h3>
-        <ul></ul>
-      </div>
-      <div class="squareScheme">
-        <h3>Square Color Scheme</h3>
-        <ul></ul>
-      </div>
-      <div class="splitComplementaryScheme">
-        <h3>Split Color Scheme</h3>
-        <ul></ul>
-      </div>
-    </div>
-   
-  </div>
-  <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/prism.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
   </body>
 </html>

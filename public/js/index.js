@@ -1,6 +1,7 @@
 document.querySelector('button').addEventListener('click', apiReq)
 async function apiReq() {
-  const hexIn = document.querySelector('input').value
+  let hexIn = document.querySelector('input').value
+  if (hexIn[0] == '#') hexIn = hexIn.slice(1)
   try {
     const res = await fetch(`/api/${hexIn}`)
     const data = await res.json()
@@ -12,17 +13,14 @@ async function apiReq() {
 
 function showColors(data) {
   for (const key in data) {
-    if (key == 'color') {
-      const span = document.querySelector('span.colorValue')
-      span.textContent = `#${data[key]}`
-      span.style.backgroundColor = `#${data[key]}`
-    } else {
-      changeColor(key)
-    }
+    changeColor(key)
   }
+  document.querySelector('.output').classList.remove('hidden')
+  document.querySelector('.colorValue').classList.remove('hidden')
   function changeColor(scheme) {
     const colors = data[scheme]
     const ul = document.querySelector(`.${scheme} ul`)
+    while (ul.firstChild) ul.removeChild(ul.firstChild)
     colors.forEach(v => {
       const li = document.createElement('li')
       li.textContent = `#${v}`
