@@ -4,7 +4,7 @@ This API generates color schemes from a single base color value. It accepts a
 singular color value in hexadecimal format and returns each color scheme color
 value in hexadecimal format.
 
-**Link to project:** http://color-scheme.cyberalcove.com/
+**Link to project:** http://color-scheme.cyberalcove.com
 
 ![demo video](/color-scheme-api.gif)
 
